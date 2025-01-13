@@ -1,0 +1,35 @@
+Introduction
+--------------
+
+An simple contact book based on the presented idea, with incorporated feedback. I did concentrate on implementing a better lookup container which is used as the dictionary backend, for which I selected a binary-tree.
+Fuzzy logic for contact search has not been implemented due to time contraints.
+
+
+Usage
+------
+
+The application is a simple console application, and is prompting for an actionable input. The available actions are shown in a menu as follows:
+
+''
+ q - Quit the application
+ p - Print contacts
+ a - Add a new contact
+ d - Deletes an entry based on the id
+ s - Shows details of given entry id
+ f - Find contacts for a name or partial name
+ ''
+
+Most actions also have the need to prompt for further parameters.
+For time reasons I had to deviate from the presented design and was not able to implement the 'update' functionality, however, I managed to implement the search-function that was previously missed.
+
+
+Algorithm Design
+----------------
+
+The binary-tree uses a left-first strategy, meaning that - while traversing the tree - the left leaf is evaluated first before the node's own value. The right leaf of the node is evaluated last. Traversal rules are straightforward: turn left when the node's value is smaller than the lookup value, or right when the value is greater. Using the left-first strategy supports a comprehendable approach to represent the tree state in a sequence, which further enables easier testing.
+
+
+Test plan
+---------
+
+The code was tested by using a set of unit tests. I also made use of ChatGPT to generate a batch of randomized persons, including a variety of details, which can be loaded into the initial state of the contact book.
